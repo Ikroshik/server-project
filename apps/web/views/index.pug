@@ -42,6 +42,8 @@ html(lang="ru")
         ul.nav.nav-pills.nav-tabs
           li(ui-sref="servers", ui-sref-active="active")
             a(href="#") Сервера
-          li(ui-sref="groups", ui-sref-active="none")
-            a(href="#") Группы    
+          li(ui-sref="groups", ui-sref-active="active")
+            a(href="#") Группы   
+          li(ui-sref="charts", ui-sref-active="active")
+            a(href="#") Мониторинг   
         ui-view

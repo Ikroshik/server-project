@@ -1,7 +1,7 @@
 const Charts = [
   '$resource',
   function($resource) {
-    return $resource('/charts', {}, {
+    return $resource('/charts/daily-tasks', {param: '@param'}, {
       serverCharts: {
         url: '/charts/:serverId',
         method: 'get',

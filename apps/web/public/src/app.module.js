@@ -3,6 +3,7 @@ import {serversModule} from './modules/servers/servers.module';
 import {groupsModule} from './modules/groups/groups.module';
 import {NotificationService} from './services/notification.service';
 import {factoriesModule} from './factories';
+import {chartsModule} from './modules/charts/charts.module';
 
 
 angular.module('test_project', [
@@ -12,6 +13,7 @@ angular.module('test_project', [
   'hljs',
   serversModule.name,
   groupsModule.name,
+  chartsModule.name,
   factoriesModule.name,
 ])
     .config(stateConfig)
