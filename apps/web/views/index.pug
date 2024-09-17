@@ -39,7 +39,9 @@ html(lang="ru")
           a test user
     .container
       .row
-        ul.nav.nav-pills.nav-menu
+        ul.nav.nav-pills.nav-tabs
           li(ui-sref="servers", ui-sref-active="active")
             a(href="#") Сервера
+          li(ui-sref="groups", ui-sref-active="none")
+            a(href="#") Группы    
         ui-view

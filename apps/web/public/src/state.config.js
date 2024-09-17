@@ -31,5 +31,15 @@ export default function stateConfig($stateProvider, $urlRouterProvider) {
         name: 'charts',
         url: '/charts',
         component: 'chartsMain',
+      })
+      .state({
+        name: 'groups',
+        url: '/groups',
+        component: 'groupsList'
+      })
+      .state({
+        name: 'groups.create',
+        url: '/create',
+        component: 'groupsAdd'
       });
 }

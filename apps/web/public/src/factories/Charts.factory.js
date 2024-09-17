@@ -6,9 +6,9 @@ const Charts = [
         url: '/charts/:serverId',
         method: 'get',
         isArray: false,
-      },
+      }
     });
   },
 ];
 
-export {Charts};
+export { Charts };

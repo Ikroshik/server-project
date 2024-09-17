@@ -19,8 +19,8 @@ const serverSchema = new mongoose.Schema({
     required: true,
   },
   groupId: {
-    type: String,
-    required: true,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'groups'
   },
   status: {
     type: String,

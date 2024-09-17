@@ -27,16 +27,11 @@ form.form.form-horizontal(name="editServerForm")
   .form-group(ng-class="{ 'has-error':editServerForm.groupId.$invalid }")
     label.control-label.col-md-4 Группа
     .col-md-6
-      select.form-control(
-        name="groupId",
-        ng-model="$ctrl.server.groupId",
-        required
-      )
-        option(value="") Выберите группу
-        option(value="1") Группа 1
-        option(value="2") Группа 2
-        option(value="3") Группа 3
-
+      select(class="form-control" id="group" ng-model="$ctrl.server.groupId" ng-options="group._id as group.name for group in $ctrl.groups")
+        option(value="") -- Выберите группу --
+        
+        //- each val in {{ $ctrl.server.groupId }}
+        //-   option(value={{$ctrl.server.groupId.id}}) {{$ctrl.server.groupId.name}}
   a.btn.btn-primary.col-md-offset-4(
     ng-click="editServerForm.$invalid||$ctrl.save()"
   ) Сохранить

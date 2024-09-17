@@ -8,7 +8,11 @@ const serversRouter = express.Router();
 serversRouter.get('/', async (req, res) => {
   try {
     console.log('get servers');
+    // const servers = await Server.aggregate([
+    //   { $group: { _id: '$groupId' } }
+    // ]);
     const servers = await Server.find({});
+    console.log(servers[0].groupId);
     res.json(servers);
   } catch (err) {
     console.log(err);
@@ -87,6 +91,33 @@ serversRouter.get('/:id/start', async (req, res) => {
     res.json({});
   }
 });
+
+serversRouter.get('/:id/restart', async (req, res) => {
+  try {
+    console.log('get restart servers id ', req.params.id);
+    const server = await Server.findOne({
+      _id: req.params.id,
+    });
+    if (!server.status == 'started') {
+      throw {
+        status: 422,
+        message: `Сервер ${server.name} не запущен `
+      }
+    }
+    await server.save();
+    await UserAction.create({
+      serverId: req.params.id,
+      date: moment().format('YYYY-MM-DD HH:mm:ss'),
+      user: 'Тестовый пользователь',
+      action: 'Пользователь перезапустил сервер',
+    });
+    res.json(server);
+  } catch (err) {
+    console.log(err);
+    res.json({});
+  }
+});
+
 
 serversRouter.get('/:id/stop', async (req, res) => {
   try {

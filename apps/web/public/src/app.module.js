@@ -1,7 +1,9 @@
 import stateConfig from './state.config';
 import {serversModule} from './modules/servers/servers.module';
+import {groupsModule} from './modules/groups/groups.module';
 import {NotificationService} from './services/notification.service';
 import {factoriesModule} from './factories';
+
 
 angular.module('test_project', [
   'ngResource',
@@ -9,6 +11,7 @@ angular.module('test_project', [
   'ui.router',
   'hljs',
   serversModule.name,
+  groupsModule.name,
   factoriesModule.name,
 ])
     .config(stateConfig)

@@ -1,0 +1,25 @@
+.container
+  h2 Добавить группу
+
+  form(name="addGroupForm")
+    .form-group(ng-class="{ 'has-error':addGroupForm.name.$invalid }")
+      label(for="name") Название группы
+      input.form-control(
+        type="text",
+        name="name",
+        id="name",
+        ng-model="$ctrl.group.name",
+        required
+      )
+
+    .form-group(ng-class="{ 'has-error':addGroupForm.description.$invalid }")
+      label(for="description") Описание группы
+      textarea.form-control(
+        name="description",
+        id="description",
+        ng-model="$ctrl.group.description"
+      )
+
+    a.btn.btn-primary.col-md-offset-4(
+      ng-click="addGroupForm.$invalid||$ctrl.save()"
+    ) Сохранить

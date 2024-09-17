@@ -1,0 +1,21 @@
+div(class="container")
+  h2 Список групп
+
+  table(class="table table-striped")
+    thead
+      tr
+        th Название
+        th Описание
+        th Действия
+    tbody
+      tr(ng-repeat="group in $ctrl.groups")
+        td {{ group.name }}
+        td {{ group.description }}
+        td
+          button(class="btn btn-danger" ng-click="$ctrl.deleteGroup(group._id)") Удалить
+
+  button.btn.btn-primary(
+    ui-sref="groups.create",
+    ui-sref-active="active") Добавить группу
+  .col-md-9
+    ui-view
